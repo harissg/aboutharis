@@ -1,0 +1,35 @@
+<h1>{{blogPosts[0].Post.title}}</h1>
+<main>{{blogPosts[0].Post.content}}</main>
+
+<hr/>
+<section>
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Previous posts
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <table class="table table-borderless table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let blogPost of blogPosts">
+                <td (click)="view(blogPost.id)">{{blogPost.Post.title}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

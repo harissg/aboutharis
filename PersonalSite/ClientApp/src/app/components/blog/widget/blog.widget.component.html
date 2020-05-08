@@ -1,0 +1,4 @@
+<div *ngIf="blogsObs | async as blogPosts">
+
+  <app-blogs-component [blogPosts]="blogPosts"></app-blogs-component>
+</div>
