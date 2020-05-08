@@ -63,9 +63,6 @@ namespace PersonalSite
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "api/v1/{controller}/{action=Index}/{id?}");
                 endpoints.MapControllers();
 
             });
@@ -79,7 +76,6 @@ namespace PersonalSite
 
                 if (env.IsDevelopment())
                 {
-                    //spa.UseAngularCliServer(npmScript: "start");
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
