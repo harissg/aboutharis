@@ -28,9 +28,11 @@ import { AuthGuard } from './auth/authGuard';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'blog', component: BlogWidgetComponent, children:[
-        { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
-      ] },
+      {
+        path: 'blog', component: BlogWidgetComponent, children: [
+          { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
+        ]
+      },
       { path: 'cv', component: BlogWidgetComponent },
     ])
   ],
