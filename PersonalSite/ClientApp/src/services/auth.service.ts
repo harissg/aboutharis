@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
-import { Blog } from 'src/app/model/blog';
+import { UserDTO } from 'src/dto/userDTO';
 
 @Injectable()
-export class BlogService {
-  private headers: HttpHeaders;
+export class AuthService {
+  public headers: HttpHeaders;
   constructor(private httpClient: HttpClient) {
     this.headers = new HttpHeaders();
     this.headers.append('content-type', 'application/json');
   }
 
-  getBlog(): Observable<Blog> {
-    return this.httpClient.get<Blog>(environment.apiBaseUrl + 'blogs', {
+  AuthenticateUser(user: UserDTO) {
+    const body = JSON.stringify(user);
+    return this.httpClient.post(environment.apiBaseUrl + 'users', body, {
       headers: this.headers
     });
   }
