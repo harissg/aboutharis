@@ -12,6 +12,7 @@ import { BlogService } from 'src/services/blog.service';
 import { BlogPostAddComponent } from './components/blog/blog.post.add.component';
 import { BlogPostComponent } from './components/blog/blog.post.component';
 import { AuthGuard } from './auth/authGuard';
+import { PostService } from 'src/services/post.service';
 
 @NgModule({
   declarations: [
@@ -28,15 +29,12 @@ import { AuthGuard } from './auth/authGuard';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      {
-        path: 'blog', component: BlogWidgetComponent, children: [
-          { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
-        ]
-      },
+      { path: 'blog', component: BlogWidgetComponent },
+      { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
       { path: 'cv', component: BlogWidgetComponent },
     ])
   ],
-  providers: [BlogService, AuthGuard],
+  providers: [BlogService, AuthGuard, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
