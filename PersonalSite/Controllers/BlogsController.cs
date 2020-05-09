@@ -1,21 +1,20 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using PersonalSite.Context;
+using PersonalSite.Interface;
+using PersonalSite.ViewModels;
 
 [ApiController]
 public class BlogsController : ControllerBase
 {
-
-    [HttpGet]
-    [Route("api/v1/[controller]")]
-    public IEnumerable<string> Get()
+    private readonly IBlog _blog;
+    public BlogsController(IBlog blog)
     {
-        return new List<string>() { "First blog", "second blog" };
+        _blog = blog;
     }
 
     [HttpGet]
-    [Route("api/v1/[controller]/posts")]
-    public IEnumerable<string> GetBlogPosts(){
-        return new List<string>() { "First post", "second post" };
+    [Route("api/v1/[controller]")]
+    public BlogViewModel Get()
+    {
+        return _blog.Get();
     }
 }

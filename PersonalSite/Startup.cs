@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PersonalSite.Context;
+using PersonalSite.Helpers;
+using PersonalSite.Interface;
 
 namespace PersonalSite
 {
@@ -34,8 +36,14 @@ namespace PersonalSite
                     builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 }));
 
-            services.AddDbContext<BlogsContext>(options => 
+            services.AddDbContext<BlogsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BlogsContext")));
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            services.AddScoped<IBlog, BlogHelper>();
+            services.AddScoped<IPost, PostHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

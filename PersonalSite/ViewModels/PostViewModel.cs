@@ -1,10 +1,12 @@
-﻿using System;
+﻿using PersonalSite.Context;
+using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace PersonalSite.Context
+namespace PersonalSite.ViewModels
 {
-    public class Post
+    public class PostViewModel
     {
         public Guid PostId { get; set; }
         public string Title { get; set; }
@@ -13,6 +15,5 @@ namespace PersonalSite.Context
         public ICollection<Comment> Comments { get; set; }
 
         public Guid BlogId { get; set; }
-        public virtual Blog Blog { get; set; }
     }
 }

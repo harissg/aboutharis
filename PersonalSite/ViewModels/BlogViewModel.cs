@@ -1,16 +1,17 @@
-﻿using System;
+﻿using PersonalSite.Context;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace PersonalSite.Context
+namespace PersonalSite.ViewModels
 {
-    public class Blog
+    public class BlogViewModel
     {
         public Guid BlogId { get; set; }
         public string Name { get; set; }
         public DateTime CreatedOn { get; set; }
-        public ICollection<Post> Posts { get; set; }
-
+        public ICollection<PostViewModel> Posts { get; set; }
         public Guid AuthorId { get; set; }
-        public virtual Author Author { get; set; }
     }
 }

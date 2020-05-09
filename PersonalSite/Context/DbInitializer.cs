@@ -44,7 +44,7 @@ namespace PersonalSite.Context
             var blogId = Guid.NewGuid();
             var blogs = new Blog[]
                 {
-                     new Blog{ BlogId = blogId, Name="averageDev"}
+                     new Blog{ BlogId = blogId, Name="averageDev", AuthorId = authorId, CreatedOn = DateTime.Now}
                 };
 
             foreach (Blog b in blogs)
@@ -53,9 +53,10 @@ namespace PersonalSite.Context
             }
             context.SaveChanges();
 
+            var postId = Guid.NewGuid();
             var posts = new Post[]
             {
-                new Post{PostId = Guid.NewGuid(), BlogId = blogId, AuthorId = authorId,Content = "content", Title ="dummy" }
+                new Post{PostId = postId, BlogId = blogId, Content = "content", Title ="dummy", Createdon = DateTime.Now }
             };
 
             foreach (Post p in posts)
@@ -63,6 +64,19 @@ namespace PersonalSite.Context
                 context.Posts.Add(p);
             }
             context.SaveChanges();
+
+            var commentId = Guid.NewGuid();
+            var comments = new Comment[]
+            {
+                new Comment{CommentId  = commentId, PostId = postId, Content = "first comment" }
+            };
+
+            foreach (Comment c in comments)
+            {
+                context.Comments.Add(c);
+            }
+            context.SaveChanges();
+
         }
     }
 }
