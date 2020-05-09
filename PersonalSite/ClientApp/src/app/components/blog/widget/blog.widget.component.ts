@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/services/blog.service';
-import { BlogPost } from 'src/dto/blogPost';
 import { Observable } from 'rxjs';
+import { Blog } from 'src/app/model/blog';
 
 @Component({
   selector: 'app-blog-widget-component',
@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
   providers: [BlogService]
 })
 export class BlogWidgetComponent implements OnInit {
-  private blogsObs: Observable<Array<BlogPost>>;
+  private blogObs: Observable<Blog>;
 
   constructor(private blogService: BlogService) {
   }
 
   ngOnInit() {
-    this.blogsObs = this.blogService.getBlogPosts();
+    this.blogObs = this.blogService.getBlog();
   }
 }

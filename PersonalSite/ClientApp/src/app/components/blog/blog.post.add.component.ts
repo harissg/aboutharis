@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogPost } from 'src/dto/blogPost';
-import { BlogService } from 'src/services/blog.service';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from 'src/app/auth/authGuard';
+import { Post } from 'src/app/model/post';
+import { PostDTO } from 'src/dto/postDTO';
+import { PostService } from 'src/services/post.service';
 
 @Component({
   selector: 'app-blog-post-add',
   templateUrl: './blog.post.add.component.html',
-  providers: [BlogService, AuthGuard]
+  providers: [PostService, AuthGuard]
 })
 export class BlogPostAddComponent implements OnInit {
   title: string;
   content: string;
-  constructor(private blogService: BlogService, private authGuard: AuthGuard) {
+  constructor(private postService: PostService, private authGuard: AuthGuard) {
     this.title = '';
     this.content = '';
   }
@@ -23,11 +24,13 @@ export class BlogPostAddComponent implements OnInit {
     }
   }
   add(): void {
-    const newBlogPost: BlogPost = new BlogPost();
-    newBlogPost.AuthorId = 1;
-    newBlogPost.Post.title = this.title;
-    newBlogPost.Post.content = this.content;
-    this.blogService.addBlogPost(newBlogPost);
+    const dto: PostDTO = new PostDTO();
+    dto.AuthorId = "1"; // get from local storage
+    dto.BlogId = "1"; // get from local storage
+    const post = new Post();
+    post.title = this.title;
+    post.content = this.content;
+    this.postService.add(dto);
   }
 
   cancel(): void {

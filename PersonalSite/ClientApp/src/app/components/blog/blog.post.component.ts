@@ -1,8 +1,8 @@
 // display amount of blogs
 
 import { Component, Input, OnInit } from '@angular/core';
-import { BlogPost } from 'src/dto/blogPost';
 import { Post } from 'src/app/model/post';
+import { Blog } from 'src/app/model/blog';
 
 @Component({
   selector: 'app-blogs-component',
@@ -11,26 +11,21 @@ import { Post } from 'src/app/model/post';
 export class BlogPostComponent implements OnInit {
   @Input() take: number;
   @Input() sortBy: string;
-  @Input() blogPosts: Array<BlogPost>;
+  @Input() data: Blog;
+  public posts: Array<Post>;
+
   constructor() {
-    this.take = 0;
-    this.sortBy = 'desc';
-    console.log("ctor");
-    console.log(this.blogPosts);
+    console.log("posts ctor");
+    console.log(this.data);
   }
 
   ngOnInit() {
-    this.blogPosts = [];
-    console.log("oninit")
-    console.log(this.blogPosts);
-    // let bp = new BlogPost();
-    // bp.BlogId = 1;
-    // bp.AuthorId = 1;
-    // let post = new Post();
-    // post.content = 'some context';
-    // post.title = 'first post';
-    // bp.Post = post;
-
-    this.blogPosts.push(...this.blogPosts);
+    this.posts = [];
+    this.take = 0;
+    this.sortBy = 'desc';
+    console.log("oninit posts");
+    console.log(this.data);
+    console.log("oninit blogdata");
+    this.posts.push(...this.data.posts);
   }
 }

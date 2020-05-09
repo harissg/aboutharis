@@ -1,5 +1,5 @@
-<h1>{{blogPosts[0].Post.title}}</h1>
-<main>{{blogPosts[0].Post.content}}</main>
+<h1>{{posts[0].title}}</h1>
+<main>{{posts[0].content}}</main>
 
 <hr/>
 <section>
@@ -22,8 +22,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let blogPost of blogPosts">
-                <td (click)="view(blogPost.id)">{{blogPost.Post.title}}</td>
+              <tr *ngFor="let post of posts">
+                <td (click)="view(post.id)">{{post.title}}</td>
               </tr>
             </tbody>
           </table>
