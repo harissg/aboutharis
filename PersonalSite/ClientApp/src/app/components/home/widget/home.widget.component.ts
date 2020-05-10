@@ -4,17 +4,17 @@ import { Observable } from 'rxjs';
 import { Blog } from 'src/app/model/blog';
 
 @Component({
-  selector: 'app-blog-widget-component',
-  templateUrl: './blog.widget.component.html',
+  selector: 'app-home-widget-component',
+  templateUrl: './home.widget.component.html',
   providers: [BlogService]
 })
-export class BlogWidgetComponent implements OnInit {
-  private blogObs: Observable<Blog>;
+export class HomeWidgetComponent implements OnInit {
+  private blog$: Observable<Blog>;
 
   constructor(private blogService: BlogService) {
   }
 
   ngOnInit() {
-    this.blogObs = this.blogService.getBlog();
+    this.blog$ = this.blogService.getBlog();
   }
 }

@@ -43,7 +43,7 @@ namespace PersonalSite.Helpers
 
         public Post GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return _blogsContext.Posts.Find(id);
         }
     }
 }

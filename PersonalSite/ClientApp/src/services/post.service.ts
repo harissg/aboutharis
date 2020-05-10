@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Post } from 'src/app/model/post';
 import { PostDTO } from 'src/dto/postDTO';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class PostService {
@@ -19,6 +20,11 @@ export class PostService {
     });
   }
 
+  getById(id: string): Observable<Post> {
+    return this.httpClient.get<Post>(environment.apiBaseUrl + 'posts/' + id, {
+      headers: this.headers
+    });
+  }
 
   add(post: PostDTO): void {
     const body = JSON.stringify(post);

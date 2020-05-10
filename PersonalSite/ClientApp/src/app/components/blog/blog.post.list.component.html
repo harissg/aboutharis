@@ -1,0 +1,9 @@
+<div *ngIf="displayType === 'list';">
+  <div class="align-items-center justify-content-center">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let post of data">
+        <a class="" href="javascript:void" (click)="viewPost(post.postId)">{{post.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

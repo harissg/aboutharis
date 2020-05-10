@@ -40,28 +40,15 @@
   <!-- Custom styles for this template -->
   <!--<link href="~/cover.css" rel="stylesheet" type="text/css" />-->
 </head>
-
 <body class="text-center">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <main role="main" class="inner cover">
-      <h1 class="cover-heading">Hello, I am you averageDev.</h1>
+      <h1 class="cover-heading">A personal blog, by your averageDev.</h1>
       <p class="lead">My beliefs are to continuously learn, inspect, reflect and adapt in no matter what I do.</p>
     </main>
     <section>
-      <h3>Latest posts</h3>
-      <div class="row">
-        <div class="col-md-4" *ngFor="let post of posts">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{post.title}}</h5>
-              <p class="card-text">{{post.content}}</p>
-              <a href="#" class="card-link">View</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-blog-post-list [data]="posts" [type]="'list'"></app-blog-post-list>
     </section>
-
     <footer class="mastfoot mt-auto">
       <div class="inner"></div>
     </footer>

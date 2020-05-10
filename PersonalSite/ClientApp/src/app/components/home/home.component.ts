@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BlogService } from 'src/services/blog.service';
-import { PostService } from 'src/services/post.service';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/model/post';
+import { Blog } from 'src/app/model/blog';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +12,11 @@ import { Post } from 'src/app/model/post';
 export class HomeComponent implements OnInit {
   public post$: Observable<Array<Post>>;
   public posts: Array<Post>;
-  constructor(private postService: PostService) { }
+  constructor() { }
+  @Input() data: Blog;
 
   ngOnInit() {
     this.posts = [];
-    const limitBy = 3;
-    this.post$ = this.postService.get(limitBy);
-    this.post$.subscribe((response) => {
-      console.log('inside home post obs subsri');
-      console.log(response);
-      this.posts.push(...response);
-    });
+    this.posts = this.data.posts;
   }
 }
