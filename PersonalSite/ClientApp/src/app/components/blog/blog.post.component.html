@@ -4,7 +4,9 @@
   </main>
   <hr />
   <section>
-    <app-comments-widget-component></app-comments-widget-component>
+    <div *ngIf="post.comments != null">
+      <app-comments-widget-component [data]="post.comments"></app-comments-widget-component>
+    </div>
   </section>
 
 

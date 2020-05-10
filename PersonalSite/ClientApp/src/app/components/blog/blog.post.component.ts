@@ -27,6 +27,7 @@ export class BlogPostComponent implements OnInit {
     this.post$.subscribe((res) => {
       this.post.title = res.title;
       this.post.content = res.content;
+      this.post.comments = res.comments;
       this.formatContent(this.post.content); // for now only 1
     });
     // this.formatContent("<h1>Title</h1><p>First para</p><p>Second para</p><h2>Subhead2</h2><p>foo</p><p>foo</p><h3></h3><p>foo3</p>"); // for now only 1
