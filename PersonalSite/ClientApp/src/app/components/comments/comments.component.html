@@ -3,8 +3,8 @@
     <label>{{commentsCount}} Comments</label>
   </div>
   <div class="alert alert-light" role="alert" *ngFor="let comment of comments">
-    <label>date: {{comment.createdon}}</label>
-    <label>username</label>
-    {{comment.content}}
+    <span><label>{{comment.createdOn | date:'dd/MM/yyyy'}}</label></span>
+    <span style="float:right;"><label>{{comment.authorName}}</label></span>
+    <p>{{comment.content}}</p>
   </div>
 </div>
