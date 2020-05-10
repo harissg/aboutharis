@@ -7,14 +7,13 @@ import { UserDTO } from 'src/dto/userDTO';
 export class AuthService {
   public headers: HttpHeaders;
   constructor(private httpClient: HttpClient) {
-    this.headers = new HttpHeaders();
-    this.headers.append('content-type', 'application/json');
   }
 
   AuthenticateUser(user: UserDTO) {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
     const body = JSON.stringify(user);
-    return this.httpClient.post(environment.apiBaseUrl + 'users', body, {
-      headers: this.headers
-    });
+    return this.httpClient.post(environment.apiBaseUrl + 'users', body, httpOptions);
   }
 }
