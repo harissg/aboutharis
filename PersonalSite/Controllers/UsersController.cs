@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PersonalSite.Interface;
 using PersonalSite.ViewModels;
+using System.Collections.Generic;
 
 namespace PersonalSite.Controllers
 {
@@ -35,15 +31,10 @@ namespace PersonalSite.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public UserViewModel Post(UserViewModel model)
+        [Route("api/v1/[controller]")]
+        public IActionResult Post(UserViewModel model)
         {
-            return _user.Get(model);
-        }
-
-        // PUT: api/Users/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
+            return Ok(_user.Get(model));
         }
     }
 }
