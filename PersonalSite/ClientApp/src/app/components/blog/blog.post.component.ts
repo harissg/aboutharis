@@ -15,17 +15,12 @@ export class BlogPostComponent implements OnInit {
   public posts: Array<Post>;
 
   constructor() {
-    console.log("posts ctor");
-    console.log(this.data);
   }
 
   ngOnInit() {
     this.posts = [];
     this.take = 0;
     this.sortBy = 'desc';
-    console.log("oninit posts");
-    console.log(this.data);
-    console.log("oninit blogdata");
     this.posts.push(...this.data.posts);
   }
 }

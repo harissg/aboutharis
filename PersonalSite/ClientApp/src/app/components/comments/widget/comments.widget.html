@@ -1,1 +1,3 @@
-comments widget
+<div *ngIf="commentObs$ | async as comments" >
+  <app-comments-component [data]="comments"></app-comments-component>
+</div>

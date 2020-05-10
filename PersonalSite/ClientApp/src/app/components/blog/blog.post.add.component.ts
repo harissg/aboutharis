@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { AuthGuard } from 'src/app/auth/authGuard';
 import { Post } from 'src/app/model/post';
 import { PostDTO } from 'src/dto/postDTO';
 import { PostService } from 'src/services/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-post-add',
@@ -13,14 +13,15 @@ import { PostService } from 'src/services/post.service';
 export class BlogPostAddComponent implements OnInit {
   title: string;
   content: string;
-  constructor(private postService: PostService, private authGuard: AuthGuard) {
+  constructor(private postService: PostService, private authGuard: AuthGuard, private router: Router) {
     this.title = '';
     this.content = '';
   }
 
   ngOnInit() {
     if (this.authGuard.canActivate(null, null)) {
-      console.log("auth passed");
+    } else {
+      this.router.navigateByUrl('/login');
     }
   }
   add(): void {
@@ -36,6 +37,5 @@ export class BlogPostAddComponent implements OnInit {
   cancel(): void {
     this.title = '';
     this.content = '';
-    // use form group to reset form
   }
 }

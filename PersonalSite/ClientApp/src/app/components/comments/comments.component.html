@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <label>{{commentsCount}} Comments</label>
+  </div>
+  <div class="alert alert-light" role="alert" *ngFor="let comment of comments">
+    <label>date: {{comment.createdon}}</label>
+    <label>username</label>
+    {{comment.content}}
+  </div>
+</div>
