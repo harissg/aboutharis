@@ -19,7 +19,7 @@ namespace PersonalSite.Context
             var userId = Guid.NewGuid();
             var users = new User[]
                 {
-                new User{UserId = userId, Password = "@ver@geDev*", Username="harissg"},
+                new User{UserId = userId, Password = "foo", Username="bar"},
                 };
 
             foreach (User u in users)
@@ -31,7 +31,7 @@ namespace PersonalSite.Context
             var authorId = Guid.NewGuid();
             var authors = new Author[]
                {
-                    new Author{Name = "Haris Gillani", AuthorId= authorId, UserId = userId}
+                    new Author{Name = "FooBar", AuthorId= authorId, UserId = userId}
                };
 
             foreach (Author a in authors)
@@ -68,7 +68,7 @@ namespace PersonalSite.Context
             var commentId = Guid.NewGuid();
             var comments = new Comment[]
             {
-                new Comment{CommentId  = commentId, PostId = postId, Content = "first comment" }
+                new Comment{CommentId  = commentId, PostId = postId, Content = "first comment", CreatedOn = DateTime.Now, AuthorName = "fooauthor", Email = "foo@email.com" }
             };
 
             foreach (Comment c in comments)

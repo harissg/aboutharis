@@ -1,4 +1,4 @@
-import { PostComment } from './postComment';
+import { PostComment } from './post.comment';
 
 export class Post {
   postId: number;

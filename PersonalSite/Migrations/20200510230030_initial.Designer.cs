@@ -10,8 +10,8 @@ using PersonalSite.Context;
 namespace PersonalSite.Migrations
 {
     [DbContext(typeof(BlogsContext))]
-    [Migration("20200508224932_addaded-comment-entity")]
-    partial class addadedcommententity
+    [Migration("20200510230030_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace PersonalSite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AuthorId")
+                    b.Property<Guid>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
@@ -71,6 +71,9 @@ namespace PersonalSite.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<Guid>("PostId")
                         .HasColumnType("uniqueidentifier");
 
@@ -87,9 +90,6 @@ namespace PersonalSite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("BlogId")
                         .HasColumnType("uniqueidentifier");
 
@@ -103,8 +103,6 @@ namespace PersonalSite.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PostId");
-
-                    b.HasIndex("AuthorId");
 
                     b.HasIndex("BlogId");
 
@@ -141,7 +139,9 @@ namespace PersonalSite.Migrations
                 {
                     b.HasOne("PersonalSite.Context.Author", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PersonalSite.Context.Comment", b =>
@@ -155,12 +155,6 @@ namespace PersonalSite.Migrations
 
             modelBuilder.Entity("PersonalSite.Context.Post", b =>
                 {
-                    b.HasOne("PersonalSite.Context.Author", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PersonalSite.Context.Blog", "Blog")
                         .WithMany("Posts")
                         .HasForeignKey("BlogId")

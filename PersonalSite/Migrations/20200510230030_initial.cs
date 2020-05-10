@@ -46,7 +46,7 @@ namespace PersonalSite.Migrations
                     BlogId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    AuthorId = table.Column<Guid>(nullable: true)
+                    AuthorId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,7 @@ namespace PersonalSite.Migrations
                         column: x => x.AuthorId,
                         principalTable: "Author",
                         principalColumn: "AuthorId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,23 +67,36 @@ namespace PersonalSite.Migrations
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Createdon = table.Column<DateTime>(nullable: false),
-                    BlogId = table.Column<Guid>(nullable: false),
-                    AuthorId = table.Column<Guid>(nullable: false)
+                    BlogId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Post", x => x.PostId);
                     table.ForeignKey(
-                        name: "FK_Post_Author_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "Author",
-                        principalColumn: "AuthorId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Post_Blog_BlogId",
                         column: x => x.BlogId,
                         principalTable: "Blog",
                         principalColumn: "BlogId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comment",
+                columns: table => new
+                {
+                    CommentId = table.Column<Guid>(nullable: false),
+                    Content = table.Column<string>(nullable: true),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    PostId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comment", x => x.CommentId);
+                    table.ForeignKey(
+                        name: "FK_Comment_Post_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Post",
+                        principalColumn: "PostId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -98,9 +111,9 @@ namespace PersonalSite.Migrations
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Post_AuthorId",
-                table: "Post",
-                column: "AuthorId");
+                name: "IX_Comment_PostId",
+                table: "Comment",
+                column: "PostId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Post_BlogId",
@@ -110,6 +123,9 @@ namespace PersonalSite.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Comment");
+
             migrationBuilder.DropTable(
                 name: "Post");
 
