@@ -8,11 +8,12 @@ export class CommentsComponent implements OnInit {
 
   @Input() data: Array<Comment>;
   public commentsCount: number;
+  public comments: Array<Comment>;
   constructor() {
-    console.log("comments:" + this.data);
   }
 
   ngOnInit() {
-    this.commentsCount = this.data.length - 1;
+    this.commentsCount = this.data.length;
+    this.comments = this.data;
   }
 }

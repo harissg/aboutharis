@@ -20,6 +20,7 @@ import { CommentsWidgetComponent } from './components/comments/widget/comments.w
 import { AuthService } from 'src/services/auth.service';
 import { HomeWidgetComponent } from './components/home/widget/home.widget.component';
 import { BlogPostListComponent } from './components/blog/blog.post.list.component';
+import { CommentService } from 'src/services/comment.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BlogPostListComponent } from './components/blog/blog.post.list.componen
     CommentsComponent,
     CommentsWidgetComponent,
     CVComponent,
-    BlogPostListComponent
+    BlogPostListComponent,
+    CommentsWidgetComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -48,7 +50,7 @@ import { BlogPostListComponent } from './components/blog/blog.post.list.componen
     ]),
     RichTextEditorAllModule
   ],
-  providers: [BlogService, AuthGuard, PostService, AuthService],
+  providers: [BlogService, AuthGuard, PostService, AuthService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

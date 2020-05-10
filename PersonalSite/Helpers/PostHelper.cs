@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace PersonalSite.Helpers
 {
@@ -43,7 +44,9 @@ namespace PersonalSite.Helpers
 
         public Post GetById(Guid id)
         {
-            return _blogsContext.Posts.Find(id);
+            return _blogsContext.Posts.Include(a => a.Comments).ToList()
+                .Where(a => a.PostId == id)
+                .FirstOrDefault();
         }
     }
 }
