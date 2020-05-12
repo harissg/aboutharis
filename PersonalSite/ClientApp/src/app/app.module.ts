@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -42,12 +43,13 @@ import { NavFooterComponent } from './components/nav-footer/nav-footer.component
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeWidgetComponent, pathMatch: 'full' },
-      { path: 'blog', component: BlogPostComponent },
+      { path: '', component: HomeWidgetComponent, pathMatch: 'full', data: {animation: 'HomePage'} },
+      { path: 'blog', component: BlogPostComponent, data: {animation: 'FilterPage'} },
       { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent }
     ]),
-    RichTextEditorAllModule
+    RichTextEditorAllModule,
+    BrowserAnimationsModule
   ],
   providers: [BlogService, AuthGuard, PostService, AuthService, CommentService],
   bootstrap: [AppComponent]

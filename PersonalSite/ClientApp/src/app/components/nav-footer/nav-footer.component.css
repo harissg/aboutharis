@@ -11,7 +11,9 @@
   text-align: center;
 }
 
-
+.footer-centre{
+  margin: auto;
+}
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */

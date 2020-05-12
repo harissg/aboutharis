@@ -29,13 +29,17 @@ namespace PersonalSite.Helpers
                 .Include(a => a.Posts)
                 .FirstOrDefault();
 
+                var post = _blogsContext.Posts
+                .Include(a => a.Comments)
+                .Where(p => p.BlogId == blog.BlogId)
+                .OrderByDescending(p => p.Createdon)
+                .ToList();
+
             model.AuthorId = blog.AuthorId;
             model.BlogId = blog.BlogId;
             model.Name = blog.Name;
             model.CreatedOn = blog.CreatedOn;
-            model.Posts = blog.Posts
-                .OrderByDescending(p => p.Createdon)
-                .Take(3)
+            model.Posts = post
                 .Select(a => new PostViewModel()
                 {
                     BlogId = a.BlogId,
