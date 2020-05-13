@@ -18,5 +18,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.posts = [];
     this.posts = this.data.posts;
+    sessionStorage.setItem('blogdata', JSON.stringify(this.data));
   }
 }
