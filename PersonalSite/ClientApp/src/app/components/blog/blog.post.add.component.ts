@@ -6,11 +6,12 @@ import { PostService } from 'src/services/post.service';
 import { Router } from '@angular/router';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, RichTextEditor } from '@syncfusion/ej2-angular-richtexteditor';
 import { Blog } from 'src/app/model/blog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-blog-post-add',
   templateUrl: './blog.post.add.component.html',
-  providers: [PostService, AuthGuard, ToolbarService, LinkService, ImageService, HtmlEditorService]
+  providers: [PostService, AuthGuard]
 })
 export class BlogPostAddComponent implements OnInit {
   title: string;
@@ -26,7 +27,8 @@ export class BlogPostAddComponent implements OnInit {
       'SourceCode', 'FullScreen', '|', 'Undo', 'Redo', 'InsertCode']
   };
 
-  constructor(private postService: PostService, private authGuard: AuthGuard, private router: Router) {
+  constructor(private postService: PostService, private authGuard: AuthGuard
+    , private router: Router, private toastr: ToastrService) {
     this.title = '';
     this.content = '';
   }
@@ -46,11 +48,14 @@ export class BlogPostAddComponent implements OnInit {
       const post = new Post();
       post.title = this.title;
       post.content = this.content;
-      this.postService.add(dto);
+      this.postService.add(dto).subscribe((res) => {
+        this.toastr.success('A new post added');
+      }, (error) => {
+        this.toastr.error('An error occurred.');
+      });
     } else {
-      // error
+      this.toastr.error('A blog cannot be empty!');
     }
-
   }
 
   cancel(): void {

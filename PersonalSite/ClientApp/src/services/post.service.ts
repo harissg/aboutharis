@@ -27,9 +27,9 @@ export class PostService {
     });
   }
 
-  add(post: PostDTO): void {
+  add(post: PostDTO): Observable<PostDTO[]> {
     const body = JSON.stringify(post);
-    this.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'blogs/posts', body, {
+    return this.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'blogs/posts', body, {
       headers: this.headers
     });
   }
