@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { PostComment } from 'src/app/model/post.comment';
 import { PostService } from 'src/services/post.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-comments-widget-component',
@@ -10,7 +10,7 @@ import { PostService } from 'src/services/post.service';
 export class CommentsWidgetComponent implements OnInit {
   @Input() data: Array<Comment>;
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private toastr: ToastrService) {
 
   }
 
@@ -19,7 +19,8 @@ export class CommentsWidgetComponent implements OnInit {
   // event listener in here to start the adding of a comment, receives a comment object
   addComment(comment: PostComment) {
     this.postService.addPostComment(comment).subscribe((res) => {
-      alert('added comment');
+      // notification here
+      this.toastr.success('Thanks for contributing to the discussion.');
     }, (error) => {
       console.log(error);
     });

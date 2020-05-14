@@ -19,12 +19,14 @@ namespace PersonalSite.Helpers
 
         public void Add(Post model)
         {
+            model.Createdon = DateTime.Now;
             _blogsContext.Posts.Add(model);
             _ = _blogsContext.SaveChanges();
         }
 
         public void AddComment(Comment model)
         {
+            model.CreatedOn = DateTime.Now;
             _blogsContext.Comments.Add(model);
             _ = _blogsContext.SaveChanges();
         }

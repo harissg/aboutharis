@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -51,7 +52,8 @@ import { CommentsAddComponent } from './components/comments/comments-add/comment
       { path: 'login', component: LoginComponent }
     ]),
     RichTextEditorAllModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [BlogService, AuthGuard, PostService, AuthService, CommentService],
   bootstrap: [AppComponent]

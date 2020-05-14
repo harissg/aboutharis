@@ -1,10 +1,10 @@
 <div>
   <div>
-    <label>{{commentsCount}} Comments</label>
+    <label class="label label-default">{{commentsCount}} Comments</label>
   </div>
   <div class="alert alert-light" role="alert" *ngFor="let comment of comments">
     <span><label>{{comment.createdOn | date:'dd/MM/yyyy'}}</label></span>
-    <span style="float:right;"><label>{{comment.authorName}}</label></span>
-    <p>{{comment.content}}</p>
+    <span class="blockquote-footer"><label>{{comment.authorName}}</label></span>
+    <p class="lead">{{comment.content}}</p>
   </div>
 </div>
