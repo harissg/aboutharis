@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 import { Post } from 'src/app/model/post';
 import { PostDTO } from 'src/dto/postDTO';
 import { Observable } from 'rxjs';
+import { PostComment } from 'src/app/model/post.comment';
 
 @Injectable()
 export class PostService {
@@ -31,5 +32,20 @@ export class PostService {
     this.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'blogs/posts', body, {
       headers: this.headers
     });
+  }
+
+  getPostComments(id: string): Observable<Array<PostComment>> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.httpClient.get<Array<PostComment>>(environment.apiBaseUrl + 'posts/' + id + 'comments', httpOptions);
+  }
+
+  addPostComment(comment: PostComment) {
+    const body = JSON.stringify(comment);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.httpClient.post(environment.apiBaseUrl + 'posts/' + comment.postId + '/comments', body, httpOptions);
   }
 }

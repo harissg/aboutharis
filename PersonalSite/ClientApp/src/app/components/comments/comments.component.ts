@@ -9,6 +9,7 @@ export class CommentsComponent implements OnInit {
   @Input() data: Array<Comment>;
   public commentsCount: number;
   public comments: Array<Comment>;
+
   constructor() {
   }
 

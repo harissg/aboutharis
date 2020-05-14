@@ -39,6 +39,13 @@ namespace PersonalSite.Controllers
             _post.Add(model);
         }
 
+        [HttpPost]
+        [Route("api/v1/[controller]/posts/{id}/comments")]
+        public void Add(Comment model)
+        {
+            _post.AddComment(model);
+        }
+
         [HttpDelete]
         [Route("api/v1/[controller]/{id}")]
         public void Delete(int id)

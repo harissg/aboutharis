@@ -22,6 +22,7 @@ import { HomeWidgetComponent } from './components/home/widget/home.widget.compon
 import { BlogPostListComponent } from './components/blog/blog.post.list.component';
 import { CommentService } from 'src/services/comment.service';
 import { NavFooterComponent } from './components/nav-footer/nav-footer.component';
+import { CommentsAddComponent } from './components/comments/comments-add/comments-add.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NavFooterComponent } from './components/nav-footer/nav-footer.component
     CommentsWidgetComponent,
     BlogPostListComponent,
     CommentsWidgetComponent,
-    NavFooterComponent
+    NavFooterComponent,
+    CommentsAddComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -19,7 +19,14 @@ namespace PersonalSite.Helpers
 
         public void Add(Post model)
         {
-            throw new NotImplementedException();
+            _blogsContext.Posts.Add(model);
+            _ = _blogsContext.SaveChanges();
+        }
+
+        public void AddComment(Comment model)
+        {
+            _blogsContext.Comments.Add(model);
+            _ = _blogsContext.SaveChanges();
         }
 
         public void Delete(Guid id)

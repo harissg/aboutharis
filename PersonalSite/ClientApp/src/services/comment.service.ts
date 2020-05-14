@@ -9,10 +9,5 @@ export class CommentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  get(id: string): Observable<Array<Comment>> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    return this.httpClient.get<Array<Comment>>(environment.apiBaseUrl + 'posts/' + id + 'comments', httpOptions);
-  }
+
 }

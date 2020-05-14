@@ -4,4 +4,5 @@ export class PostComment {
   createdOn: Date;
   authorName: string;
   email: string;
+  postId: string;
 }
