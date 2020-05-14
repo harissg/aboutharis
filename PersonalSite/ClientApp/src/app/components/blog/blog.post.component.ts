@@ -1,8 +1,7 @@
 // display amount of blogs
 
-import { Component, Input, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Post } from 'src/app/model/post';
-import { Blog } from 'src/app/model/blog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/services/post.service';
 import { Observable } from 'rxjs';
@@ -34,26 +33,9 @@ export class BlogPostComponent implements OnInit {
   }
 
   formatContent(content: string) {
-    // first set title header
-    // const head: HTMLParagraphElement = this.renderer.createElement('h1');
-    // head.innerHTML = title;
-    // this.renderer.appendChild(this.div.nativeElement, head);
-    /**structure head para h2 para h3 para so on */
-    // let count = 1;
-    // // lets start process sub headers and paragraph content
-    // let temp = content.split('</h' + count + '>');
-    // debugger;
-    // count += 1;
     const div: HTMLParagraphElement = this.renderer.createElement('div');
     div.innerHTML = content;
     this.renderer.appendChild(this.div.nativeElement, div);
   }
 
-  parse(value: string): string {
-    let newValue: string = '';
-
-
-
-    return newValue;
-  }
 }
