@@ -15,8 +15,6 @@ export class LoginComponent {
 
   login() {
     const user = new UserDTO();
-    user.username = 'harissg'
-    user.password = '@ver@geDev*';
 
     this.authService.AuthenticateUser(user)
       .subscribe((response) => {

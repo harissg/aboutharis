@@ -9,7 +9,7 @@ import { Blog } from 'src/app/model/blog';
   providers: [BlogService]
 })
 export class HomeWidgetComponent implements OnInit {
-  private blog$: Observable<Blog>;
+  public blog$: Observable<Blog>;
 
   constructor(private blogService: BlogService) {
   }
