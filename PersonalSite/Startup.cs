@@ -33,7 +33,9 @@ namespace PersonalSite
             options.AddDefaultPolicy(
                 builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    builder.WithOrigins(Configuration.GetSection("allowedOrigin").Value)
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
                 }));
 
             services.AddDbContext<BlogsContext>(options =>

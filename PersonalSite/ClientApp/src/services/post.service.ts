@@ -10,28 +10,28 @@ import { PostComment } from 'src/app/model/post.comment';
 export class PostService {
   public headers: HttpHeaders;
   public params: HttpParams;
-  constructor(private httpClient: HttpClient) {
-    this.headers = new HttpHeaders();
-    this.headers.append('content-type', 'application/json');
-  }
+  constructor(private httpClient: HttpClient) { }
 
   get(limit: number) {
-    return this.httpClient.get<Array<Post>>(environment.apiBaseUrl + 'posts?limit=' + limit, {
-      headers: this.headers
-    });
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.httpClient.get<Array<Post>>(environment.apiBaseUrl + 'posts?limit=' + limit, httpOptions);
   }
 
   getById(id: string): Observable<Post> {
-    return this.httpClient.get<Post>(environment.apiBaseUrl + 'posts/' + id, {
-      headers: this.headers
-    });
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.httpClient.get<Post>(environment.apiBaseUrl + 'posts/' + id, httpOptions);
   }
 
   add(post: PostDTO): Observable<PostDTO[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
     const body = JSON.stringify(post);
-    return this.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'blogs/posts', body, {
-      headers: this.headers
-    });
+    return this.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'posts', body, httpOptions);
   }
 
   getPostComments(id: string): Observable<Array<PostComment>> {

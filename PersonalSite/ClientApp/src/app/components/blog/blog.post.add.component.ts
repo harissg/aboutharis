@@ -43,15 +43,15 @@ export class BlogPostAddComponent implements OnInit {
     const dto: PostDTO = new PostDTO();
     const blog: Blog = JSON.parse(sessionStorage.getItem('blogdata'));
     if (blog != null) {
-      dto.AuthorId = blog.authorId; // get from local storage
       dto.BlogId = blog.blogId; // get from local storage
-      const post = new Post();
-      post.title = this.title;
-      post.content = this.content;
+      dto.title = this.title;
+      dto.content = this.content;
       this.postService.add(dto).subscribe((res) => {
         this.toastr.success('A new post added');
+        this.clear();
       }, (error) => {
         this.toastr.error('An error occurred.');
+        console.log(error);
       });
     } else {
       this.toastr.error('A blog cannot be empty!');
@@ -59,6 +59,11 @@ export class BlogPostAddComponent implements OnInit {
   }
 
   cancel(): void {
+    this.title = '';
+    this.content = '';
+  }
+
+  clear(): void {
     this.title = '';
     this.content = '';
   }
