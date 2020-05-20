@@ -47,7 +47,7 @@ import { CommentsAddComponent } from './components/comments/comments-add/comment
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeWidgetComponent, pathMatch: 'full', data: {animation: 'HomePage'} },
-      { path: 'blog', component: BlogPostComponent, data: {animation: 'FilterPage'} },
+      { path: 'post', component: BlogPostComponent, data: {animation: 'FilterPage'} },
       { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent }
     ]),

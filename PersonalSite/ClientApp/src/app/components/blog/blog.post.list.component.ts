@@ -26,7 +26,7 @@ export class BlogPostListComponent implements OnInit {
         queryParams: { 'id': response.postId }
       };
       // Navigate to the login page with extras
-      this.router.navigate(['/blog'], navigationExtras);
+      this.router.navigate(['/post'], navigationExtras);
     });
   }
 }
