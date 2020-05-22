@@ -13,8 +13,17 @@ public class BlogsController : ControllerBase
 
     [HttpGet]
     [Route("api/v1/[controller]")]
-    public BlogViewModel Get()
+    public IActionResult Get()
     {
-        return _blog.Get();
+        var blog = _blog.Get();
+
+        if (blog != null)
+        {
+            return Ok(blog);
+        }
+        else
+        {
+            return NotFound("Unable to find a blog.");
+        }
     }
 }

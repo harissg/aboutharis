@@ -13,21 +13,6 @@ namespace PersonalSite.Controllers
         {
             _user = user;
         }
-        // GET: api/Users
-        [HttpGet]
-        [Route("api/v1/[controller]")]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "", "" };
-        }
-
-        // GET: api/Users/5
-        [HttpGet]
-        [Route("api/v1/[controller]")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST: api/Users
         [HttpPost]

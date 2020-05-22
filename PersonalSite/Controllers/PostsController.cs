@@ -20,37 +20,58 @@ namespace PersonalSite.Controllers
 
         [HttpGet]
         [Route("api/v1/[controller]")]
-        public ICollection<Post> Get(int limit)
+        public IActionResult Get(int limit)
         {
-            return _post.Get(limit);
+            var posts = _post.Get(limit);
+
+            if (posts != null && posts.Count > 0)
+            {
+                return Ok(posts);
+            }
+            else
+            {
+                return NotFound("Unable to find any posts");
+            }
         }
 
         [HttpGet]
         [Route("api/v1/[controller]/{id}")]
-        public Post Get(Guid id)
+        public IActionResult Get(Guid id)
         {
-            return _post.GetById(id);
+            var post = _post.GetById(id);
+
+            if (post != null)
+            {
+                return Ok(post);
+            }
+            else
+            {
+                return NotFound($"Post : {id} not found.");
+            }
         }
 
         [HttpPost]
         [Route("api/v1/[controller]")]
-        public void Add(Post model)
+        public IActionResult Add(Post model)
         {
             _post.Add(model);
+            return Created($"/post?id={ model.PostId}", model);
         }
 
         [HttpPost]
         [Route("api/v1/[controller]/{id}/comments")]
-        public void Add(Comment model)
+        public IActionResult Add(Comment model)
         {
             _post.AddComment(model);
+            return Created("", model.CommentId);
         }
 
+        //TO DO 
         [HttpDelete]
         [Route("api/v1/[controller]/{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-
+            return null;
         }
     }
 }

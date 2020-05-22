@@ -16,12 +16,6 @@ namespace PersonalSite.Helpers
             _blogsContext = blogsContext;
         }
 
-        public ICollection<Post> AddBlogPost()
-        {
-            var a = _blogsContext.Blogs.Include("Post").ToList();
-            return null;
-        }
-
         public BlogViewModel Get()
         {
             var model = new BlogViewModel();
