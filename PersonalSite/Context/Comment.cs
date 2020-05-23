@@ -12,6 +12,7 @@ namespace PersonalSite.Context
         public DateTime CreatedOn { get; set; }
         public string AuthorName { get; set; }
         public string Email { get; set; }
+        public bool IsApproved { get; set; }
 
         public Guid PostId { get; set; }
         public Post Post { get; set; }

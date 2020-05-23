@@ -68,7 +68,7 @@ namespace PersonalSite.Context
             var commentId = Guid.NewGuid();
             var comments = new Comment[]
             {
-                new Comment{CommentId  = commentId, PostId = postId, Content = "first comment", CreatedOn = DateTime.Now, AuthorName = "fooauthor", Email = "foo@email.com" }
+                new Comment{CommentId  = commentId, PostId = postId, Content = "first comment", CreatedOn = DateTime.Now, AuthorName = "fooauthor", Email = "foo@email.com", IsApproved = true }
             };
 
             foreach (Comment c in comments)
