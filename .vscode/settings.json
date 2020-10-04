@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e1ceb465-5c21-429a-a454-367bceb42d53/resourceGroups/personalblog/providers/Microsoft.Web/sites/PersonalSite20200516021354",
+    "appService.deploySubpath": "publish"
+}

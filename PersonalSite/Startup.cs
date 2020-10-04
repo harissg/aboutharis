@@ -38,8 +38,8 @@ namespace PersonalSite
                     .AllowAnyMethod();
                 }));
 
-            services.AddDbContext<BlogsContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("BlogsContext")));
+            //services.AddDbContext<BlogsContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("BlogsContext")));
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -61,6 +61,11 @@ namespace PersonalSite
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+            }
+
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<BlogsContext>().Database.Migrate();
             }
 
             app.UseHttpsRedirection();
