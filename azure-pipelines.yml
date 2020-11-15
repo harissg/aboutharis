@@ -28,10 +28,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: PublishPipelineArtifact@1
-  inputs:
-   targetPath: '$(Pipeline.Workspace)'
-   publishLocation: 'pipeline'
+# - task: PublishPipelineArtifact@1
+#   inputs:
+#    targetPath: '$(Pipeline.Workspace)'
+#    publishLocation: 'pipeline'
 
 # Publish build artifacts
 # Publish build artifacts to Azure Pipelines or a Windows file share
