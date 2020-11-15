@@ -39,6 +39,5 @@ steps:
   inputs:
     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
-# - task: PublishBuildArtifacts@1    
-#   inputs:
-#     PathtoPublish: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1    
+
