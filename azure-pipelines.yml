@@ -28,12 +28,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-#- task: VSTest@2
- # inputs:
-  #  platform: '$(buildPlatform)'
-   # configuration: '$(buildConfiguration)'
-
-- task: PublishPipelineArtifact@1
+- task: DownloadBuildArtifacts@0
   inputs:
-   targetPath: '$(build.artifactStagingDirectory)\'
-   publishLocation: 'pipeline'
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'WebApp'
+    downloadPath: '$(System.ArtifactsDirectory)'
+
