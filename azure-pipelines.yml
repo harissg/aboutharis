@@ -28,19 +28,26 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-# - task: PublishPipelineArtifact@1
-#   inputs:
-#    targetPath: '$(Pipeline.Workspace)'
-#    publishLocation: 'pipeline'
+- task: PublishPipelineArtifact@1
+  inputs:
+   targetPath: '$(Pipeline.Workspace)'
+   publishLocation: 'pipeline'
+   artifact: 'personalblog'
+
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish pipeline artifact'
+  inputs:
+    artifactName: 'drop'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
 
 # Publish build artifacts
 # Publish build artifacts to Azure Pipelines or a Windows file share
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)\WebApp.zip' 
-    artifactName: 'personalblog-release-version' 
-    publishLocation: 'filePath'
-    targetPath: '$(System.DefaultWorkingDirectory)/_harissg.aboutharis/Job'
-    #parallel: false # Optional
-    #parallelCount: # Optional
-    #fileCopyOptions: #Optional
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     pathToPublish: '$(Build.ArtifactStagingDirectory)\WebApp.zip' 
+#     artifactName: 'personalblog-release-version' 
+#     publishLocation: 'filePath'
+#     targetPath: '$(System.DefaultWorkingDirectory)/_harissg.aboutharis/Job'
+#     #parallel: false # Optional
+#     #parallelCount: # Optional
+#     #fileCopyOptions: #Optional
