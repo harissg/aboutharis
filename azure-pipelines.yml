@@ -38,11 +38,10 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)'    
+    targetFolder: '$(Build.ArtifactStagingDirectory)/'    
 
 - task: PublishBuildArtifacts@1
   inputs:
-    TargetPath: $(Build.ArtifactStagingDirectory)/WebApp.zip 
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
-    publishLocation: 'filepath'
+    publishLocation: 'container'
