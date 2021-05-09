@@ -41,11 +41,19 @@ export class PostService {
     return this.httpClient.get<Array<PostComment>>(environment.apiBaseUrl + 'posts/' + id + 'comments', httpOptions);
   }
 
-  addPostComment(comment: PostComment) {
+  addPostComment(comment: PostComment): Observable<object> {
     const body = JSON.stringify(comment);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     return this.httpClient.post(environment.apiBaseUrl + 'posts/' + comment.postId + '/comments', body, httpOptions);
+  }
+
+  update(post: Partial<PostDTO>): Observable<object> {
+    const body = JSON.stringify(post);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.httpClient.put(environment.apiBaseUrl + 'posts/' + body, httpOptions);
   }
 }
