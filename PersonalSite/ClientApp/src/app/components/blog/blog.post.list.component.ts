@@ -21,7 +21,6 @@ export class BlogPostListComponent implements OnInit {
     this.postService.getById(id).subscribe((response) => {
       // Set our navigation extras object
       // that contains our global query params
-      const data = JSON.stringify(response);
       const navigationExtras: NavigationExtras = {
         queryParams: { 'id': response.postId }
       };
