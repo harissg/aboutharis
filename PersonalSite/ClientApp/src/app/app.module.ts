@@ -24,6 +24,7 @@ import { BlogPostListComponent } from './components/blog/blog.post.list.componen
 import { CommentService } from 'src/services/comment.service';
 import { NavFooterComponent } from './components/nav-footer/nav-footer.component';
 import { CommentsAddComponent } from './components/comments/comments-add/comments-add.component';
+import { BlogPostEditComponent } from './components/blog/blog.post.edit.component';
 
 @NgModule({
   declarations: [
@@ -39,23 +40,30 @@ import { CommentsAddComponent } from './components/comments/comments-add/comment
     BlogPostListComponent,
     CommentsWidgetComponent,
     NavFooterComponent,
-    CommentsAddComponent
+    CommentsAddComponent,
+    BlogPostEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeWidgetComponent, pathMatch: 'full', data: {animation: 'HomePage'} },
+      { path: '', component: HomeWidgetComponent, pathMatch: 'full', data: { animation: 'HomePage' } },
       { path: 'post', component: BlogPostComponent, data: {animation: 'FilterPage'} },
       { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
+      { path: 'edit', component: BlogPostEditComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent }
     ]),
     RichTextEditorAllModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [BlogService, AuthGuard, PostService, AuthService, CommentService],
+  providers: [BlogService
+    , AuthGuard
+    , PostService
+    , AuthService
+    , CommentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
