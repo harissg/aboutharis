@@ -57,5 +57,11 @@ namespace PersonalSite.Helpers
                 .Where(a => a.PostId == id)
                 .FirstOrDefault();
         }
+
+        public void Update(Post model)
+        {
+            _blogsContext.Posts.Update(model);
+            _blogsContext.SaveChanges();
+        }
     }
 }

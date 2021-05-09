@@ -73,5 +73,13 @@ namespace PersonalSite.Controllers
         {
             return null;
         }
+
+        [HttpPut]
+        [Route("api/v1/[controller]/{id}")]
+        public IActionResult Update(Post model)
+        {
+            this._post.Update(model);
+            return Ok();
+        }
     }
 }

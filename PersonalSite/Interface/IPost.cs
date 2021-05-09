@@ -13,5 +13,6 @@ namespace PersonalSite.Interface
         void Delete(Guid id);
         void Add(Post model);
         void AddComment(Comment model);
+        void Update(Post model);
     }
 }
