@@ -1,7 +1,7 @@
-export class PostDTO{
+export class PostDTO {
   BlogId: string;
   AuthorId: string;
-  postId: number;
+  postId: string;
   title: string = '';
   content: string = '';
   createdon: Date;

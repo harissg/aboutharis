@@ -1,7 +1,7 @@
 import { PostComment } from './post.comment';
 
 export class Post {
-  postId: number;
+  postId: string;
   title: string = '';
   content: string = '';
   comments: Array<PostComment>;
