@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router } from '@angular/router';
-import { AuthService } from 'src/services/auth.service';
-import { UserDTO } from 'src/dto/userDTO';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { User } from '../model/user';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user: User = JSON.parse(localStorage.getItem('user'));
 
     if (user != null) {
       return true;
