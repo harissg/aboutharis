@@ -1,0 +1,10 @@
+<form>
+    <label>Editing {{title}}</label>
+    <ejs-richtexteditor id='defaultRTE' [(ngModel)]="content" name="content" [toolbarSettings]="tools">
+    </ejs-richtexteditor>
+
+    <div class="form-group col-md-6">
+        <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="update()">Update</button>
+    </div>
+</form>
