@@ -2,14 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AuthGuard } from "src/app/auth/authGuard";
 import { Post } from "src/app/model/post";
-import { PostDTO } from "src/dto/postDTO";
 import { PostService } from "src/services/post.service";
 import { ToolbarService, LinkService, ImageService, HtmlEditorService } from '@syncfusion/ej2-angular-richtexteditor'
-
+import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common'
 @Component({
     selector: 'app-blogs-edit-component',
     templateUrl: './blog.post.edit.component.html',
-    providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
+    providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, ToastrService]
 })
 export class BlogPostEditComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class BlogPostEditComponent implements OnInit {
     };
     constructor(private authGuard: AuthGuard
         , private router: Router, private activeRoute: ActivatedRoute
-        , private postService: PostService) { }
+        , private postService: PostService, private toastr: ToastrService, private location: Location) { }
 
     ngOnInit() {
         this.activeRoute.queryParams.subscribe(params => {
@@ -54,6 +54,10 @@ export class BlogPostEditComponent implements OnInit {
     }
 
     update() {
-        this.postService.update(this.post.content as Partial<PostDTO>);
+        this.post.content = this.content;
+        this.postService.update(this.post).subscribe((res) => {
+            this.toastr.success('Post has been updated.');
+            this.location.back();
+        });
     }
 }

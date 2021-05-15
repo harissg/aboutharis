@@ -54,6 +54,6 @@ export class PostService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    return this.httpClient.put(environment.apiBaseUrl + 'posts/' + body, httpOptions);
+    return this.httpClient.put(environment.apiBaseUrl + 'posts/' + post.postId, body, httpOptions);
   }
 }
