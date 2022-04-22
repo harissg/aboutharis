@@ -13,47 +13,47 @@ export class PostService {
   constructor(private httpClient: HttpClient) { }
 
   get(limit: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    return this.httpClient.get<Array<Post>>(environment.apiBaseUrl + 'posts?limit=' + limit, httpOptions);
+ const httpOptions = {
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+ };
+ returthis.httpClient.get<Array<Post>>(environment.apiBaseUrl + 'posts?limit=' + limit, httpOptions);
   }
 
   getById(id: string): Observable<Post> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    return this.httpClient.get<Post>(environment.apiBaseUrl + 'posts/' + id, httpOptions);
+ const httpOptions = {
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+ };
+ returthis.httpClient.get<Post>(environment.apiBaseUrl + 'posts/' + id, httpOptions);
   }
 
   add(post: PostDTO): Observable<PostDTO[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    const body = JSON.stringify(post);
-    return this.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'posts', body, httpOptions);
+ const httpOptions = {
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+ };
+ const body = JSON.stringify(post);
+ returthis.httpClient.post<Array<PostDTO>>(environment.apiBaseUrl + 'posts', body, httpOptions);
   }
 
   getPostComments(id: string): Observable<Array<PostComment>> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    return this.httpClient.get<Array<PostComment>>(environment.apiBaseUrl + 'posts/' + id + 'comments', httpOptions);
+ const httpOptions = {
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+ };
+ returthis.httpClient.get<Array<PostComment>>(environment.apiBaseUrl + 'posts/' + id + 'comments', httpOptions);
   }
 
   addPostComment(comment: PostComment): Observable<object> {
-    const body = JSON.stringify(comment);
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    return this.httpClient.post(environment.apiBaseUrl + 'posts/' + comment.postId + '/comments', body, httpOptions);
+ const body = JSON.stringify(comment);
+ const httpOptions = {
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+ };
+ returthis.httpClient.post(environment.apiBaseUrl + 'posts/' + comment.postId + '/comments', body, httpOptions);
   }
 
   update(post: Partial<PostDTO>): Observable<object> {
-    const body = JSON.stringify(post);
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
-    return this.httpClient.put(environment.apiBaseUrl + 'posts/' + post.postId, body, httpOptions);
+ const body = JSON.stringify(post);
+ const httpOptions = {
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+ };
+ returthis.httpClient.put(environment.apiBaseUrl + 'posts/' + post.postId, body, httpOptions);
   }
 }

@@ -1,13 +1,13 @@
 <h1>{{post.title}}</h1>
 <main>
-  <div *ngIf="isEditable">
-    <button class="btn btn-primary" href="javascript:void(0)" (click)="editPost(post.postId)">Edit</button>
+  <div *ngIf='isEditable'>
+ <buttoclass='btbtn-primary' href='javascript:void(0)' (click)='editPost(post.postId)'>Edit</button>
   </div>
   <div #content></div>
 </main>
 <hr />
 <section>
-  <div *ngIf="post.comments != null">
-    <app-comments-widget-component [data]="post.comments"></app-comments-widget-component>
+  <div *ngIf='post.comments != null'>
+ <app-comments-widget-component [data]='post.comments'></app-comments-widget-component>
   </div>
 </section>

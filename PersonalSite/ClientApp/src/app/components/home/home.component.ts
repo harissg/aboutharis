@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   @Input() data: Blog;
 
   ngOnInit() {
-    this.posts = [];
-    this.posts = this.data.posts;
-    sessionStorage.setItem('blogdata', JSON.stringify(this.data));
+ this.posts = [];
+ this.posts = this.data.posts;
+ sessionStorage.setItem('blogdata', JSON.stringify(this.data));
   }
 }

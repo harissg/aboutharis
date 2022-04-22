@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
-import { AuthService } from "src/services/auth.service";
-import { UserDTO } from "src/dto/userDTO";
-import { Router } from "@angular/router";
+import { Component } from '@angular/core';
+import { AuthService } from 'src/services/auth.service';
+import { UserDTO } from 'src/dto/userDTO';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
@@ -14,15 +14,15 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   login() {
-    const user = new UserDTO();
+ const user = new UserDTO();
 
-    this.authService.AuthenticateUser(user)
-      .subscribe((response) => {
-        localStorage.setItem('user', JSON.stringify(user));
-        // redirect to blog add
-        this.router.navigateByUrl('/add');
-      }, (error) => {
-        alert('Invalid credentials');
-      });
+ this.authService.AuthenticateUser(user)
+.subscribe((response) => {
+  localStorage.setItem('user', JSON.stringify(user));
+  // redirect to blog add
+  this.router.navigateByUrl('/add');
+}, (error) => {
+  alert('Invalid credentials');
+});
   }
 }

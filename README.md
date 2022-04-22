@@ -1,2 +1,2 @@
 # Purpose
-A personal blogging application created using Angular and .net core
+A personal blogging applicatiocreated using Angular and .net core

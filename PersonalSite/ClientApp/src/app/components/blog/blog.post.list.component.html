@@ -1,9 +1,9 @@
-<div *ngIf="displayType === 'list';">
-  <div class="align-items-center justify-content-center">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let post of data">
-        <a class="" href="javascript:void(0)" (click)="viewPost(post.postId)">{{post.title}} <span class="badge badge-primary badge-pill" data-toggle="tooltip" data-placement="right" title="comments"> {{post.comments.length}}</span></a>
-      </li>
-    </ul>
+<div *ngIf='displayType === 'list';'>
+  <div class='align-items-center justify-content-center'>
+ <ul class='list-group list-group-flush'>
+<li class='list-group-item' *ngFor='let post of data'>
+  <a class='' href='javascript:void(0)' (click)='viewPost(post.postId)'>{{post.title}} <spaclass='badge badge-primary badge-pill' data-toggle='tooltip' data-placement='right' title='comments'> {{post.comments.length}}</span></a>
+</li>
+ </ul>
   </div>
 </div>

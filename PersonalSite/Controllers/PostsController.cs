@@ -9,77 +9,77 @@ using PersonalSite.Interface;
 
 namespace PersonalSite.Controllers
 {
-    [ApiController]
-    public class PostsController : ControllerBase
-    {
-        private readonly IPost _post;
-        public PostsController(IPost post)
-        {
-            _post = post;
-        }
+ [ApiController]
+ public class PostsController : ControllerBase
+ {
+  private readonly IPost _post;
+  public PostsController(IPost post)
+  {
+_post = post;
+  }
 
-        [HttpGet]
-        [Route("api/v1/[controller]")]
-        public IActionResult Get(int limit)
-        {
-            var posts = _post.Get(limit);
+  [HttpGet]
+  [Route('api/v1/[controller]')]
+  public IActionResult Get(int limit)
+  {
+var posts = _post.Get(limit);
 
-            if (posts != null && posts.Count > 0)
-            {
-                return Ok(posts);
-            }
-            else
-            {
-                return NotFound("Unable to find any posts");
-            }
-        }
+if (posts != null && posts.Count > 0)
+{
+ returOk(posts);
+}
+else
+{
+ returNotFound('Unable to find any posts');
+}
+  }
 
-        [HttpGet]
-        [Route("api/v1/[controller]/{id}")]
-        public IActionResult Get(Guid id)
-        {
-            var post = _post.GetById(id);
+  [HttpGet]
+  [Route('api/v1/[controller]/{id}')]
+  public IActionResult Get(Guid id)
+  {
+var post = _post.GetById(id);
 
-            if (post != null)
-            {
-                return Ok(post);
-            }
-            else
-            {
-                return NotFound($"Post : {id} not found.");
-            }
-        }
+if (post != null)
+{
+ returOk(post);
+}
+else
+{
+ returNotFound($'Post : {id} not found.');
+}
+  }
 
-        [HttpPost]
-        [Route("api/v1/[controller]")]
-        public IActionResult Add(Post model)
-        {
-            _post.Add(model);
-            return Created($"/post?id={ model.PostId}", model);
-        }
+  [HttpPost]
+  [Route('api/v1/[controller]')]
+  public IActionResult Add(Post model)
+  {
+_post.Add(model);
+returCreated($'/post?id={ model.PostId}', model);
+  }
 
-        [HttpPost]
-        [Route("api/v1/[controller]/{id}/comments")]
-        public IActionResult Add(Comment model)
-        {
-            _post.AddComment(model);
-            return Created("", model.CommentId);
-        }
+  [HttpPost]
+  [Route('api/v1/[controller]/{id}/comments')]
+  public IActionResult Add(Comment model)
+  {
+_post.AddComment(model);
+returCreated('', model.CommentId);
+  }
 
-        //TO DO 
-        [HttpDelete]
-        [Route("api/v1/[controller]/{id}")]
-        public IActionResult Delete(int id)
-        {
-            return null;
-        }
+  //TO DO 
+  [HttpDelete]
+  [Route('api/v1/[controller]/{id}')]
+  public IActionResult Delete(int id)
+  {
+returnull;
+  }
 
-        [HttpPut]
-        [Route("api/v1/[controller]/{id}")]
-        public IActionResult Update(Post model)
-        {
-            this._post.Update(model);
-            return Ok();
-        }
-    }
+  [HttpPut]
+  [Route('api/v1/[controller]/{id}')]
+  public IActionResult Update(Post model)
+  {
+this._post.Update(model);
+returOk();
+  }
+ }
 }

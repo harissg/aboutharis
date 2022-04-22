@@ -28,41 +28,41 @@ import { BlogPostEditComponent } from './components/blog/blog.post.edit.componen
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    HomeWidgetComponent,
-    BlogPostAddComponent,
-    BlogPostComponent,
-    LoginComponent,
-    CommentsComponent,
-    CommentsWidgetComponent,
-    BlogPostListComponent,
-    CommentsWidgetComponent,
-    NavFooterComponent,
-    CommentsAddComponent,
-    BlogPostEditComponent
+ AppComponent,
+ NavMenuComponent,
+ HomeComponent,
+ HomeWidgetComponent,
+ BlogPostAddComponent,
+ BlogPostComponent,
+ LoginComponent,
+ CommentsComponent,
+ CommentsWidgetComponent,
+ BlogPostListComponent,
+ CommentsWidgetComponent,
+ NavFooterComponent,
+ CommentsAddComponent,
+ BlogPostEditComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeWidgetComponent, pathMatch: 'full', data: { animation: 'HomePage' } },
-      { path: 'post', component: BlogPostComponent, data: {animation: 'FilterPage'} },
-      { path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
-      { path: 'edit', component: BlogPostEditComponent, canActivate: [AuthGuard] },
-      { path: 'login', component: LoginComponent }
-    ]),
-    RichTextEditorAllModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot()
+ BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+ HttpClientModule,
+ FormsModule,
+ RouterModule.forRoot([
+{ path: '', component: HomeWidgetComponent, pathMatch: 'full', data: { animation: 'HomePage' } },
+{ path: 'post', component: BlogPostComponent, data: {animation: 'FilterPage'} },
+{ path: 'add', component: BlogPostAddComponent, canActivate: [AuthGuard] },
+{ path: 'edit', component: BlogPostEditComponent, canActivate: [AuthGuard] },
+{ path: 'login', component: LoginComponent }
+ ]),
+ RichTextEditorAllModule,
+ BrowserAnimationsModule,
+ ToastrModule.forRoot()
   ],
   providers: [BlogService
-    , AuthGuard
-    , PostService
-    , AuthService
-    , CommentService
+ , AuthGuard
+ , PostService
+ , AuthService
+ , CommentService
   ],
   bootstrap: [AppComponent]
 })

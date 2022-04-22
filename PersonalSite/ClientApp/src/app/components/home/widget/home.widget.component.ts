@@ -15,6 +15,6 @@ export class HomeWidgetComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.blog$ = this.blogService.getBlog();
+ this.blog$ = this.blogService.getBlog();
   }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PersonalSite.ViewModels
 {
-    public class BlogViewModel
-    {
-        public Guid BlogId { get; set; }
-        public string Name { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public ICollection<PostViewModel> Posts { get; set; }
-        public Guid AuthorId { get; set; }
-    }
+ public class BlogViewModel
+ {
+  public Guid BlogId { get; set; }
+  public string Name { get; set; }
+  public DateTime CreatedO{ get; set; }
+  public ICollection<PostViewModel> Posts { get; set; }
+  public Guid AuthorId { get; set; }
+ }
 }

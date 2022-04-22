@@ -7,32 +7,32 @@ using System;
 
 namespace PersonalSite
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var host = CreateWebHostBuilder(args).Build();
+ public class Program
+ {
+  public static void Main(string[] args)
+  {
+var host = CreateWebHostBuilder(args).Build();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                try
-                {
-                    var context = services.GetRequiredService<BlogsContext>();
-                    DbInitializer.Initialize(context);
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred while seeding the database.");
-                }
-            }
+using (var scope = host.Services.CreateScope())
+{
+ var services = scope.ServiceProvider;
+ try
+ {
+  var context = services.GetRequiredService<BlogsContext>();
+  DbInitializer.Initialize(context);
+ }
+ catch (Exceptioex)
+ {
+  var logger = services.GetRequiredService<ILogger<Program>>();
+  logger.LogError(ex, 'Aerror occurred while seeding the database.');
+ }
+}
 
-            host.Run();
-        }
+host.Run();
+  }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-    }
+  public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+WebHost.CreateDefaultBuilder(args)
+ .UseStartup<Startup>();
+ }
 }

@@ -17,29 +17,29 @@ export class CommentsAddComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.comment = '';
-    this.email = '';
-    this.name = '';
-    this.postId = this.activatedRoute.snapshot.queryParams['id'];
+ this.comment = '';
+ this.email = '';
+ this.name = '';
+ this.postId = this.activatedRoute.snapshot.queryParams['id'];
   }
   // broadcast
   addComment() {
-    const post = new PostComment();
-    if (this.comment === '' || this.email === '' || this.name === '') {
-      alert('Please fill out all info');
-      return;
-    }
-    post.content = this.comment;
-    post.email = this.email;
-    post.postId = this.postId;
-    post.authorName = this.name;
-    this.addCommentEvent.emit(post);
+ const post = new PostComment();
+ if (this.comment === '' || this.email === '' || this.name === '') {
+alert('Please fill out all info');
+return;
+ }
+ post.content = this.comment;
+ post.email = this.email;
+ post.postId = this.postId;
+ post.authorName = this.name;
+ this.addCommentEvent.emit(post);
   }
 
   cancel() {
-    this.comment = '';
-    this.email = '';
-    this.postId = '';
-    this.name = '';
+ this.comment = '';
+ this.email = '';
+ this.postId = '';
+ this.name = '';
   }
 }

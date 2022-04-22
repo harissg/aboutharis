@@ -5,21 +5,21 @@ using System.Collections.Generic;
 
 namespace PersonalSite.Controllers
 {
-    [ApiController]
-    public class UsersController : ControllerBase
-    {
-        private readonly IUser _user;
-        public UsersController(IUser user)
-        {
-            _user = user;
-        }
+ [ApiController]
+ public class UsersController : ControllerBase
+ {
+  private readonly IUser _user;
+  public UsersController(IUser user)
+  {
+_user = user;
+  }
 
-        // POST: api/Users
-        [HttpPost]
-        [Route("api/v1/[controller]")]
-        public IActionResult Post(UserViewModel model)
-        {
-            return Ok(_user.Get(model));
-        }
-    }
+  // POST: api/Users
+  [HttpPost]
+  [Route('api/v1/[controller]')]
+  public IActionResult Post(UserViewModel model)
+  {
+returOk(_user.Get(model));
+  }
+ }
 }

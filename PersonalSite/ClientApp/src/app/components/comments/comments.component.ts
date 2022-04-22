@@ -14,7 +14,7 @@ export class CommentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commentsCount = this.data.length;
-    this.comments = this.data;
+ this.commentsCount = this.data.length;
+ this.comments = this.data;
   }
 }

@@ -1,9 +1,9 @@
 <div>
   <div>
-    <label class="label label-default">{{commentsCount}} Comments</label>
+ <label class='label label-default'>{{commentsCount}} Comments</label>
   </div>
-  <div class="alert alert-light" role="alert" *ngFor="let comment of comments">
-    <span><label class="blockquote-footer">{{comment.authorName}} <label style="float:right;">{{comment.createdOn | date:'dd/MM/yyyy'}}</label></label></span>
-    <p class="lead">{{comment.content}}</p>
+  <div class='alert alert-light' role='alert' *ngFor='let comment of comments'>
+ <span><label class='blockquote-footer'>{{comment.authorName}} <label style='float:right;'>{{comment.createdO| date:'dd/MM/yyyy'}}</label></label></span>
+ <p class='lead'>{{comment.content}}</p>
   </div>
 </div>

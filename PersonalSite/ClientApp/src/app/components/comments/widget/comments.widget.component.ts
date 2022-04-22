@@ -16,13 +16,13 @@ export class CommentsWidgetComponent implements OnInit {
 
   ngOnInit() {
   }
-  // event listener in here to start the adding of a comment, receives a comment object
+  // event listener ihere to start the adding of a comment, receives a comment object
   addComment(comment: PostComment) {
-    this.postService.addPostComment(comment).subscribe((res) => {
-      // notification here
-      this.toastr.success('Thanks for contributing to the discussion.');
-    }, (error) => {
-      console.log(error);
-    });
+ this.postService.addPostComment(comment).subscribe((res) => {
+// notificatiohere
+this.toastr.success('Thanks for contributing to the discussion.');
+ }, (error) => {
+console.log(error);
+ });
   }
 }

@@ -5,13 +5,13 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolea{
+ const user = JSON.parse(localStorage.getItem('user'));
 
-    if (user != null) {
-      return true;
-    } else {
-      this.router.navigateByUrl('/login');
-    }
+ if (user != null) {
+returtrue;
+ } else {
+this.router.navigateByUrl('/login');
+ }
   }
 }

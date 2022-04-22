@@ -10,10 +10,10 @@ export class AuthService {
   }
 
   AuthenticateUser(user: UserDTO) {
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-    const body = JSON.stringify(user);
-    return this.httpClient.post(environment.apiBaseUrl + 'users', body, httpOptions);
+ const httpOptions = {
+headers: new HttpHeaders({'Content-Type': 'application/json'})
+ };
+ const body = JSON.stringify(user);
+ returthis.httpClient.post(environment.apiBaseUrl + 'users', body, httpOptions);
   }
 }

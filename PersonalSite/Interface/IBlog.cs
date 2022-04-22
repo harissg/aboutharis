@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace PersonalSite.Interface
 {
-    public interface IBlog
-    {
-        BlogViewModel Get();
-    }
+ public interface IBlog
+ {
+  BlogViewModel Get();
+ }
 }

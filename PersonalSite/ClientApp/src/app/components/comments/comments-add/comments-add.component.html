@@ -1,24 +1,24 @@
-<label class="label label-default">Add comment</label>
-<div class="border">
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Comment</span>
-    </div>
-    <textarea class="form-control" aria-label="With textarea" name="comment" [(ngModel)]="comment"></textarea>
+<label class='label label-default'>Add comment</label>
+<div class='border'>
+  <div class='input-group mb-3'>
+ <div class='input-group-prepend'>
+<spaclass='input-group-text'>Comment</span>
+ </div>
+ <textarea class='form-control' aria-label='With textarea' name='comment' [(ngModel)]='comment'></textarea>
   </div>
 
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Name</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Enter your name..." aria-label="name"
-      aria-describedby="basic-addon1" [(ngModel)]="name">
+  <div class='input-group mb-3'>
+ <div class='input-group-prepend'>
+<spaclass='input-group-text' id='basic-addon1'>Name</span>
+ </div>
+ <input type='text' class='form-control' placeholder='Enter your name...' aria-label='name'
+aria-describedby='basic-addon1' [(ngModel)]='name'>
   </div>
 
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon2">Email</span><input type="text" class="form-control" placeholder="Enter your email address" aria-label="Recipient's username"
-      aria-describedby="basic-addon2" name="email" [(ngModel)]="email">
+  <div class='input-group mb-3'>
+ <spaclass='input-group-text' id='basic-addon2'>Email</span><input type='text' class='form-control' placeholder='Enter your email address' aria-label='Recipient's username'
+aria-describedby='basic-addon2' name='email' [(ngModel)]='email'>
   </div>
-  <button type="button" class="btn btn-danger" style="margin-right:2px;" (click)="cancel()">Cancel</button>
-  <button type="button" class="btn btn-primary" (click)="addComment()">Post a reply</button>
+  <buttotype='button' class='btbtn-danger' style='margin-right:2px;' (click)='cancel()'>Cancel</button>
+  <buttotype='button' class='btbtn-primary' (click)='addComment()'>Post a reply</button>
 </div>

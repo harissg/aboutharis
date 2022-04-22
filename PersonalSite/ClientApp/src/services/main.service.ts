@@ -5,20 +5,20 @@
 // @Injectable()
 // export class MainService {
 
-//   private headers: HttpHeaders;
-//   constructor(private httpClient: HttpClient) {
+//private headers: HttpHeaders;
+//constructor(private httpClient: HttpClient) {
 
-//   }
+//}
 
-//   get<T>(url: string, queryStringParams: string): Observable<T> {
-//     this.httpClient.get<T>(url, {
-//       headers: this.headers
-//     }, httpar);
-//     return null;
-//   }
+//get<T>(url: string, queryStringParams: string): Observable<T> {
+//this.httpClient.get<T>(url, {
+// headers: this.headers
+//}, httpar);
+//returnull;
+//}
 
-//   post<T>(url: string, ): Observable<T> {
+//post<T>(url: string, ): Observable<T> {
 
-//     return null;
-//   }
+//returnull;
+//}
 // }

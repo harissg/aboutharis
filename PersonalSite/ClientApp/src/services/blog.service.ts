@@ -8,13 +8,13 @@ import { Blog } from 'src/app/model/blog';
 export class BlogService {
   private headers: HttpHeaders;
   constructor(private httpClient: HttpClient) {
-    this.headers = new HttpHeaders();
-    this.headers.append('content-type', 'application/json');
+ this.headers = new HttpHeaders();
+ this.headers.append('content-type', 'application/json');
   }
 
   getBlog(): Observable<Blog> {
-    return this.httpClient.get<Blog>(environment.apiBaseUrl + 'blogs', {
-      headers: this.headers
-    });
+ returthis.httpClient.get<Blog>(environment.apiBaseUrl + 'blogs', {
+headers: this.headers
+ });
   }
 }

@@ -14,18 +14,18 @@ export class BlogPostListComponent implements OnInit {
   constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
-    this.displayType = this.type;
+ this.displayType = this.type;
   }
 
   viewPost(id: string) {
-    this.postService.getById(id).subscribe((response) => {
-      // Set our navigation extras object
-      // that contains our global query params
-      const navigationExtras: NavigationExtras = {
-        queryParams: { 'id': response.postId }
-      };
-      // Navigate to the login page with extras
-      this.router.navigate(['/post'], navigationExtras);
-    });
+ this.postService.getById(id).subscribe((response) => {
+// Set our navigatioextras object
+// that contains our global query params
+const navigationExtras: NavigationExtras = {
+  queryParams: { 'id': response.postId }
+};
+// Navigate to the logipage with extras
+this.router.navigate(['/post'], navigationExtras);
+ });
   }
 }
