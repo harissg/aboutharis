@@ -6,4 +6,5 @@ export class BlogDTO {
   Posts: Array<Post>;
   Name: string;
   CreatedOn: Date;
+  Foo?: string;
 }
